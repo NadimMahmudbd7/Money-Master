@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Savings Account</title>
 </head>
-<body class="px-20">
+<body class="lg:px-20 md:px-10">
     <header>
         <h1 class=" text-cyan-600	 pt-5 text-4xl font-bold text-center">My Savings Account</h1>
     </header>
     <main class="mb-10">
-        <section class="grid grid-cols-2 pt-10 gap-x-20">
+        <section class="grid lg:grid-cols-2 md:grid-cols-1 pt-10 gap-x-20">
             <div class="left-Side">
                 <img  src="image.jpg" alt="">
             </div>
@@ -22,20 +22,24 @@
                 <div class="income">
                     <h2 class="text-xl text-center pt-6 font-bold">Income</h2>
                     <div class="text-center pt-5">
-                        <span class="font-bold text-inherit pr-3">Income: </span><input style="border-style:none; width: 30%;" id="inputIncomeBtn" class="bg-slate-300 " type="text" >
+                        <span class="font-bold text-inherit pr-3">Income: </span><input  style="border-style:none; width: 30%;" id="inputIncomeBtn" class="bg-slate-300  font-bold" type="text" >
+                        <span style="display: none;" id="incomeMinusNumber" class="text-red-600 pl-20">Please Input Positive Number</span>
                     </div>
                 </div>
                 <div class="Expenses">
                     <h2 class="text-xl text-center pt-6 font-bold">Expenses</h2>
                     <div class="text-center pt-5">
-                        <span class="font-bold text-inherit pr-7">Food: </span><input class="bg-slate-300"style="border-style:none; width: 30%;" id="inputFoodBtn" type="text" >
+                        <span class="font-bold text-inherit pr-7">Food: </span><input class="bg-slate-300  font-bold"style="border-style:none; width: 30%;" id="inputFoodBtn" type="text" >
+                        <span style="display: none;" id="foodMinusNumber" class="text-red-600 pl-20">Please Input Positive Number</span>
                     </div>
                     <div class="text-center pt-5">
                         <span class="font-bold text-inherit pr-8">Rent:</span>
-                        <input class="bg-slate-300"style="border-style:none; width: 30%;" id="inputRentBTn" type="text" >
+                        <input class="bg-slate-300  font-bold"style="border-style:none; width: 30%;" id="inputRentBTn" type="text" >
+                        <span style="display: none;" id="rentMinusNumber" class="text-red-600 pl-20">Please Input Positive Number</span>
                     </div>
                     <div class="text-center pt-5">
-                        <span class="font-bold text-inherit pr-3">Clothes:</span><input class="bg-slate-300"style="border-style:none; width: 30%;" id="inputClothesBtn" type="text" >
+                        <span class="font-bold text-inherit pr-3">Clothes:</span><input class="bg-slate-300  font-bold"style="border-style:none; width: 30%;" id="inputClothesBtn" type="text" >
+                        <span style="display: none;" id="clothesMinusNumber" class="text-red-600 pl-20">Please Input Positive Number</span>
                     </div>
                 </div>
                 <div class="calculateBtn justify-center align-center text-center">
@@ -46,12 +50,13 @@
                 </div>
                 <div class="Balance">
                     <h2 class="text-2xl text-center pt-5 font-bold text-inherit">Balance: <span id="balance">0</span></h2>
+                    <h2 id="incomeBalanceLow" style="display: none;" class="text-2xl text-center pt-5 font-bold text-inherit text-red-600">Your Income Balance is low</h2>
                 </div>
                 <section>
                     <div class="saveSection">
                         <div class="text-center pt-5">
                             <span class="font-bold text-inherit">Save:</span>
-                            <input class="bg-slate-300"style="border-style:none; width: 15%;" id="savebtn" type="text" > <span class="font-bold">%</span>  <button class="bg-cyan-500 hover:bg-cyan-600 px-10 text-xl font-bold py-2 text-white rounded" type="submit">Save</button>
+                            <input class="bg-slate-300  font-bold"style="border-style:none; width: 15%;" id="savebtn" type="text" > <span class="font-bold">%</span>  <button class="bg-cyan-500 hover:bg-cyan-600 px-10 text-xl font-bold py-2 text-white rounded" type="submit">Save</button>
                             <div class="SavingAmount">
                                 <h2 class="text-2xl text-center pt-5 font-bold text-inherit">Saving Amount: <span id="saveBalance">0</span></h2>
                             </div>
