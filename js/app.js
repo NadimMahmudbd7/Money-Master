@@ -32,7 +32,7 @@ function forMinus(inputfield,items){
 // --------------------Income Balance Field------------------------------------------------------------
 function incomeBalance(inputValue){
     const inputIncomeBtn = document.getElementById(inputValue);
-    const inputIncomeBtnValue = (parseFloat(inputIncomeBtn.value)).toFixed(2)
+    const inputIncomeBtnValue = parseFloat(inputIncomeBtn.value)
     return inputIncomeBtnValue
 }
 
