@@ -29,11 +29,15 @@ function forMinus(inputfield,items){
 
 
 // Income Balance Field
-function incomeBalance(){
-    const inputIncomeBtn = document.getElementById("inputIncomeBtn");
+function incomeBalance(inputValue){
+    const inputIncomeBtn = document.getElementById(inputValue);
     const inputIncomeBtnValue = parseFloat(inputIncomeBtn.value)
     return inputIncomeBtnValue
 }
+
+
+
+
 
 document.getElementById("calculate").addEventListener("click",function(){
     // minus function call
@@ -46,7 +50,7 @@ document.getElementById("calculate").addEventListener("click",function(){
     if(isNaN(totalCost())){
         alert('Please Fill all Inputs with Number')
     }
-    else if(isNaN(incomeBalance())){
+    else if(isNaN(incomeBalance("inputIncomeBtn"))){
         alert('Please Fill all Inputs with Number')
     }
     else{    
@@ -57,9 +61,9 @@ const totalExpensesValue = parseFloat(totalExpensesText);
 const balance = document.getElementById("balance");
 const balanceText = balance.innerText;
 const balanceValue = parseFloat(balanceText)
-const balances = incomeBalance() - totalCost()
+const balances = incomeBalance("inputIncomeBtn") - totalCost()
 const incomeBalanceLow = document.getElementById("incomeBalanceLow")
-if(incomeBalance() < totalCost()){
+if(incomeBalance("inputIncomeBtn") < totalCost()){
     incomeBalanceLow.style.display = "block"
 }
 else{
@@ -70,3 +74,45 @@ else{
     }
 
 })
+
+
+// saving Field
+
+// function random(costSaveBalance,mainRemainingBalance){
+//     const saveBalance = document.getElementById(costSaveBalance)
+// const saveBalanceText = saveBalance.innerText;
+// const saveBalanceValue = parseFloat(saveBalanceText)
+// const remainingBalance = document.getElementById(mainRemainingBalance)
+// const remainingBalanceText = remainingBalance.innerText
+// const remainingBalanceValue = parseFloat(remainingBalanceText)
+// }
+// random("saveBalance","remainingBalance")
+
+document.getElementById("save").addEventListener("click",function(){
+    // forMinus("savebtn","saveMinusNumber")
+  const savebtnValue = incomeBalance("savebtn")
+const savebtn = document.getElementById("savebtn")
+const saveMinusNumber = document.getElementById("saveMinusNumber")
+const remainingBalance = document.getElementById("remainingBalance")
+const saveBalance = document.getElementById("saveBalance")
+const saveNoBalance = document.getElementById("saveNoBalance")
+const parsentValue = (incomeBalance("inputIncomeBtn")*savebtnValue)/100;
+if(savebtn.value < 0 || savebtn.value > 100){
+    saveMinusNumber.style.display = "block"
+    saveNoBalance.style.display ="none"
+}
+else if((incomeBalance("inputIncomeBtn") - totalCost()<parsentValue)){
+    saveNoBalance.style.display ="block"
+    saveMinusNumber.style.display = "none"
+}
+else if(isNaN(savebtnValue)){
+}
+else{
+    saveNoBalance.style.display ="none"
+    saveMinusNumber.style.display = "none"
+    saveBalance.innerText = parsentValue
+remainingBalance.innerText = (incomeBalance("inputIncomeBtn") - totalCost())-parsentValue
+}
+
+})
+
