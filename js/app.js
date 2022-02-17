@@ -8,7 +8,7 @@ const inputRentBTn = document.getElementById("inputRentBTn");
 const inputRentBTnValue = parseFloat(inputRentBTn.value);
 const inputClothesBtn = document.getElementById("inputClothesBtn");
 const inputClothesBtnValue = parseFloat(inputClothesBtn.value);
-let totalExpense = (inputFoodBtnValue + inputRentBTnValue + inputClothesBtnValue).toFixed(2)
+let totalExpense = (inputFoodBtnValue + inputRentBTnValue + inputClothesBtnValue)
     return totalExpense
 }
 
