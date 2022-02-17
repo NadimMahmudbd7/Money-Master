@@ -90,24 +90,34 @@ else{
 
 document.getElementById("save").addEventListener("click",function(){
     // forMinus("savebtn","saveMinusNumber")
-  const savebtnValue = incomeBalance("savebtn")
+const savebtnValue = incomeBalance("savebtn")
 const savebtn = document.getElementById("savebtn")
 const saveMinusNumber = document.getElementById("saveMinusNumber")
 const remainingBalance = document.getElementById("remainingBalance")
 const saveBalance = document.getElementById("saveBalance")
 const saveNoBalance = document.getElementById("saveNoBalance")
+const blankBlalance = document.getElementById("blankBlalance")
 const parsentValue = (incomeBalance("inputIncomeBtn")*savebtnValue)/100;
 if(savebtn.value < 0 || savebtn.value > 100){
     saveMinusNumber.style.display = "block"
     saveNoBalance.style.display ="none"
+    blankBlalance.style.display = "none"
 }
 else if((incomeBalance("inputIncomeBtn") - totalCost()<parsentValue)){
     saveNoBalance.style.display ="block"
     saveMinusNumber.style.display = "none"
+    blankBlalance.style.display = "none"
+}
+else if(isNaN(incomeBalance("inputIncomeBtn")) ){
+    blankBlalance.style.display = "block"
+    saveNoBalance.style.display ="none"
+    saveMinusNumber.style.display = "none"
 }
 else if(isNaN(savebtnValue)){
+    alert("you can use only number, Avoid string or Blank")
 }
 else{
+    blankBlalance.style.display = "none"
     saveNoBalance.style.display ="none"
     saveMinusNumber.style.display = "none"
     saveBalance.innerText = parsentValue
