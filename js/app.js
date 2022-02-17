@@ -1,5 +1,5 @@
 
-// Total Cost field
+// -------------------Total Cost field--------------------------------------------------
 function totalCost(){
 const inputFoodBtn = document.getElementById("inputFoodBtn");
 const inputFoodBtnText = inputFoodBtn.value;
@@ -8,12 +8,13 @@ const inputRentBTn = document.getElementById("inputRentBTn");
 const inputRentBTnValue = parseFloat(inputRentBTn.value);
 const inputClothesBtn = document.getElementById("inputClothesBtn");
 const inputClothesBtnValue = parseFloat(inputClothesBtn.value);
-let totalExpense = inputFoodBtnValue + inputRentBTnValue + inputClothesBtnValue
+let totalExpense = (inputFoodBtnValue + inputRentBTnValue + inputClothesBtnValue).toFixed(2)
     return totalExpense
 }
 
 
-// For Minus Validation
+
+//-------------------- For Minus Validation------------------------------------------------------
 function forMinus(inputfield,items){
     const inputFoodBtn = document.getElementById(inputfield);
     const inputFoodBtnText = inputFoodBtn.value;
@@ -28,16 +29,16 @@ function forMinus(inputfield,items){
 }
 
 
-// Income Balance Field
+// --------------------Income Balance Field------------------------------------------------------------
 function incomeBalance(inputValue){
     const inputIncomeBtn = document.getElementById(inputValue);
-    const inputIncomeBtnValue = parseFloat(inputIncomeBtn.value)
+    const inputIncomeBtnValue = (parseFloat(inputIncomeBtn.value)).toFixed(2)
     return inputIncomeBtnValue
 }
 
 
 
-
+//--------------------- Calculate button section -------------------------------------------------------
 
 document.getElementById("calculate").addEventListener("click",function(){
     // minus function call
@@ -46,7 +47,7 @@ document.getElementById("calculate").addEventListener("click",function(){
     forMinus("inputRentBTn","rentMinusNumber")
     forMinus("inputClothesBtn","clothesMinusNumber")
 
-    // error handle for string
+    //--------------- error handle for string----------
     if(isNaN(totalCost())){
         alert('Please Fill all Inputs with Number')
     }
@@ -54,75 +55,58 @@ document.getElementById("calculate").addEventListener("click",function(){
         alert('Please Fill all Inputs with Number')
     }
     else{    
-
-const totalExpenses = document.getElementById("totalExpenses");
-const totalExpensesText = totalExpenses.innerText;
-const totalExpensesValue = parseFloat(totalExpensesText);
-const balance = document.getElementById("balance");
-const balanceText = balance.innerText;
-const balanceValue = parseFloat(balanceText)
-const balances = incomeBalance("inputIncomeBtn") - totalCost()
-const incomeBalanceLow = document.getElementById("incomeBalanceLow")
-if(incomeBalance("inputIncomeBtn") < totalCost()){
+    const totalExpenses = document.getElementById("totalExpenses");
+    const balance = document.getElementById("balance");
+    const balances = incomeBalance("inputIncomeBtn") - totalCost()
+    const incomeBalanceLow = document.getElementById("incomeBalanceLow")
+    if(incomeBalance("inputIncomeBtn") < totalCost()){
     incomeBalanceLow.style.display = "block"
-}
-else{
+    }
+    else{
     totalExpenses.innerText = totalCost()
     balance.innerText = balances
     incomeBalanceLow.style.display = "none"
-}
     }
+    }
+    })
 
-})
 
-
-// saving Field
-
-// function random(costSaveBalance,mainRemainingBalance){
-//     const saveBalance = document.getElementById(costSaveBalance)
-// const saveBalanceText = saveBalance.innerText;
-// const saveBalanceValue = parseFloat(saveBalanceText)
-// const remainingBalance = document.getElementById(mainRemainingBalance)
-// const remainingBalanceText = remainingBalance.innerText
-// const remainingBalanceValue = parseFloat(remainingBalanceText)
-// }
-// random("saveBalance","remainingBalance")
+//--------------------- Save button section -------------------------------------------------------
 
 document.getElementById("save").addEventListener("click",function(){
     // forMinus("savebtn","saveMinusNumber")
-const savebtnValue = incomeBalance("savebtn")
-const savebtn = document.getElementById("savebtn")
-const saveMinusNumber = document.getElementById("saveMinusNumber")
-const remainingBalance = document.getElementById("remainingBalance")
-const saveBalance = document.getElementById("saveBalance")
-const saveNoBalance = document.getElementById("saveNoBalance")
-const blankBlalance = document.getElementById("blankBlalance")
-const parsentValue = (incomeBalance("inputIncomeBtn")*savebtnValue)/100;
-if(savebtn.value < 0 || savebtn.value > 100){
+    const savebtnValue = incomeBalance("savebtn")
+    const savebtn = document.getElementById("savebtn")
+    const saveMinusNumber = document.getElementById("saveMinusNumber")
+    const remainingBalance = document.getElementById("remainingBalance")
+    const saveBalance = document.getElementById("saveBalance")
+    const saveNoBalance = document.getElementById("saveNoBalance")
+    const blankBlalance = document.getElementById("blankBlalance")
+    const parsentValue = (incomeBalance("inputIncomeBtn")*savebtnValue)/100;
+    if(savebtn.value < 0 || savebtn.value > 100){
     saveMinusNumber.style.display = "block"
     saveNoBalance.style.display ="none"
     blankBlalance.style.display = "none"
-}
-else if((incomeBalance("inputIncomeBtn") - totalCost()<parsentValue)){
+    }
+    else if((incomeBalance("inputIncomeBtn") - totalCost()<parsentValue)){
     saveNoBalance.style.display ="block"
     saveMinusNumber.style.display = "none"
     blankBlalance.style.display = "none"
-}
-else if(isNaN(incomeBalance("inputIncomeBtn")) ){
+    }
+    else if(isNaN(incomeBalance("inputIncomeBtn")) ){
     blankBlalance.style.display = "block"
     saveNoBalance.style.display ="none"
     saveMinusNumber.style.display = "none"
-}
-else if(isNaN(savebtnValue)){
+    }   
+    else if(isNaN(savebtnValue)){
     alert("you can use only number, Avoid string or Blank")
-}
-else{
+    }
+    else{
     blankBlalance.style.display = "none"
     saveNoBalance.style.display ="none"
     saveMinusNumber.style.display = "none"
-    saveBalance.innerText = parsentValue
-remainingBalance.innerText = (incomeBalance("inputIncomeBtn") - totalCost())-parsentValue
-}
-
-})
+    saveBalance.innerText = parsentValue.toFixed(2)
+    remainingBalance.innerText = ((incomeBalance("inputIncomeBtn") - totalCost())-parsentValue).toFixed(2)
+    }
+    })
 
