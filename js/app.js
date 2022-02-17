@@ -82,6 +82,7 @@ document.getElementById("save").addEventListener("click",function(){
     const saveBalance = document.getElementById("saveBalance")
     const saveNoBalance = document.getElementById("saveNoBalance")
     const blankBlalance = document.getElementById("blankBlalance")
+    const saveBalanceDashboard = document.getElementById("saveBalanceDashboard")
     const parsentValue = (incomeBalance("inputIncomeBtn")*savebtnValue)/100;
     if(savebtn.value < 0 || savebtn.value > 100){
     saveMinusNumber.style.display = "block"
@@ -106,6 +107,7 @@ document.getElementById("save").addEventListener("click",function(){
     saveNoBalance.style.display ="none"
     saveMinusNumber.style.display = "none"
     saveBalance.innerText = parsentValue.toFixed(2)
+    saveBalanceDashboard.innerText = parsentValue.toFixed(2)
     remainingBalance.innerText = ((incomeBalance("inputIncomeBtn") - totalCost())-parsentValue).toFixed(2)
     }
     })
