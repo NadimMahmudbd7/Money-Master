@@ -17,6 +17,9 @@
         <section class="grid lg:grid-cols-2 md:grid-cols-1 pt-10 gap-x-20">
             <div class="left-Side">
                 <img  src="image.jpg" alt="">
+                <div class="SavingAmount">
+                    <h2 class="text-4xl bg-blue-400 text-center py-5 rounded mt-5 font-bold text-white">My Saving Balance: <span id="saveBalance">0</span> <span>Tk</span></h2>
+                </div>
             </div>
             <div class="right-side bg-slate-100 rounded ">
                 <div class="income">
@@ -46,10 +49,10 @@
                     <button id="calculate" class="bg-cyan-500 hover:bg-cyan-600 px-10 text-xl font-bold py-2 text-white rounded mt-6" type="submit">Claculate</button>
                 </div>
                 <div class="totalExpenses">
-                    <h2 class="text-2xl text-center pt-5 font-bold text-inherit">Total Expenses: <span id="totalExpenses">0</span></h2>
+                    <h2 class="text-2xl text-center pt-5 font-bold text-inherit">Total Expenses: <span id="totalExpenses">0</span> <span>Tk</span></h2>
                 </div>
                 <div class="Balance">
-                    <h2 class="text-2xl text-center pt-5 font-bold text-inherit">Balance: <span id="balance">0</span></h2>
+                    <h2 class="text-2xl text-center pt-5 font-bold text-inherit">Balance: <span id="balance">0</span> <span>Tk</span></h2>
                     <h2 id="incomeBalanceLow" style="display: none;" class="text-2xl text-center pt-5 font-bold text-inherit text-red-600">Your Income Balance is low</h2>
                 </div>
                 <section>
@@ -61,10 +64,10 @@
                             <span style="display: none;" id="saveNoBalance" class="text-red-600 pl-6 font-bold">You haven't enough money for Saving</span>
                             <span style="display: none;" id="blankBlalance" class="text-red-600 pl-6 font-bold">At first press Calculate</span>
                             <div class="SavingAmount">
-                                <h2 class="text-2xl text-center pt-5 font-bold text-inherit">Saving Amount: <span id="saveBalance">0</span></h2>
+                                <h2 class="text-2xl text-center pt-5 font-bold text-inherit">Saving Amount: <span id="saveBalance">0</span> <span>Tk</span></h2>
                             </div>
                             <div class="SavingAmount">
-                                <h2 class="text-2xl text-center pt-5 font-bold text-inherit pb-10">Remaining Balance: <span id="remainingBalance">0</span></h2>
+                                <h2 class="text-2xl text-center pt-5 font-bold text-inherit pb-10">Remaining Balance: <span id="remainingBalance">0</span> <span>Tk</span></h2>
                             </div>
                         </div>
                     </div>

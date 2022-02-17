@@ -21,7 +21,7 @@ function forMinus(inputfield,items){
     const forminuss = document.getElementById(items)
     if(inputFoodBtn.value<0){
         forminuss.style.display="block"
-        return 
+        return
     }
     else{
         forminuss.style.display="none"
